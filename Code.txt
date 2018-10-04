@@ -1,0 +1,43 @@
+using System;
+namespace HelloWorld
+{
+    class Hello
+    {
+        static void Main()
+        {
+            Random rnd = new Random();
+            int numb = rnd.Next(1, 300);
+            int guessvalue;
+            int tri = 0;
+            //Console.WriteLine(numb); Uncomment this line to see the desired number in console for testing
+            do
+            {
+                Console.WriteLine("Enter value between 1-300 : ");
+                guessvalue = Convert.ToInt32(Console.ReadLine());
+                tri++;
+                if (guessvalue < 1 || guessvalue > 300)
+                {
+                    Console.WriteLine("Try to insert Value between 1-300");
+                    Console.WriteLine("\n");
+                    continue;
+                }
+                if (guessvalue < numb)
+                    Console.WriteLine("Sorry. Number is less than Random Value. Try again!!");
+                if (guessvalue > numb)
+                    Console.WriteLine("Sorry. Number is greater than Random Value. Try again!!");
+                if (guessvalue == numb)
+                {
+                    Console.WriteLine("\n");
+                    Console.WriteLine("*************************************************************************");
+                    Console.WriteLine("Congrats!!!!!!! Your guess is right. You did it in: " + tri + " attempt.");
+                    Console.WriteLine("*************************************************************************");
+                    Console.WriteLine("\n");
+                    Console.WriteLine("Press any key to exit.");
+                    Console.ReadKey();
+                    break;
+                }
+            } while (guessvalue <= numb || guessvalue >= numb);
+
+        }
+    }
+}
