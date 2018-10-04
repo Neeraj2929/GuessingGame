@@ -1,0 +1,45 @@
+using System;
+namespace HelloWorld
+{
+    class Hello
+    {
+        static void Main()
+        {
+
+            Random rnd = new Random();
+            int numb = rnd.Next(1, 300);
+            int guessvalue;
+
+           // Console.WriteLine(numb);
+
+            do
+            {
+
+                Console.WriteLine("Enter value between 1-300 : ");
+                guessvalue = Convert.ToInt32(Console.ReadLine());
+
+                if (guessvalue < 1 || guessvalue > 300)
+                {
+                    Console.WriteLine("Invalid Value .. Insert value between 1-300 ");
+                    Console.WriteLine("\n");
+                    continue;
+                }
+                if (guessvalue < numb)
+                    Console.WriteLine("Sorry. Number is less than Random Value. Try again !!!");
+
+                if (guessvalue > numb)
+                    Console.WriteLine("Sorry. Number is greater than Random Value. Try again !!!");
+
+                if (guessvalue == numb)
+                {
+                    Console.WriteLine("Congratulations !!! Your guess is right for Random Value.");
+                    Console.WriteLine("Press any key to exit.");
+                    Console.ReadKey();
+                    break;
+                }
+
+            } while (guessvalue <= numb || guessvalue >= numb);
+
+        }
+    }
+}
